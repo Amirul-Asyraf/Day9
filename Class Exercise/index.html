@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS Timer</title>
+        <script>
+            // setInterval(moveBox, 500); //number reps milliseconds
+            // function moveBox() {
+            //     console.log("hi!");
+            // }
+
+            // setInterval(function() {
+            //     console.log("running without function name")
+            // }, 1000);
+
+            // var timer = setInterval(function() {
+            //     console.log("using timer var");
+            // }, 1000);
+
+            // clearInterval(timer);
+
+            // var secCount = 0;
+            // var minCount = 0;
+            // var hourCount = 0; // use this to create a timer
+
+
+            
+            var score = 0;
+            var box1X = 0;
+            var box2Y = 0;
+            var box3XY = 0;
+            setTimeout(countDown, 5000);
+            function countDown() {
+                console.log("RUN !!!!");
+                clearInterval(boxInterval);
+                
+            }
+
+            setTimeout(countDown2, 10000);
+            function countDown2() {
+                setInterval(counting, 10);
+            }
+
+            //Increases scores and moves the box to the right
+            var boxInterval = setInterval(counting, 10);
+            function counting() {
+                var scoreText = document.querySelector('h1');
+                score += 1;
+                scoreText.innerHTML = score;
+
+                box1X += 10;
+                document.getElementById('box1').style.left = box1X + 'px';
+
+                box2Y += 10;
+                document.getElementById('box2').style.top = box2Y + 'px';
+
+                box3XY += 10;
+                document.getElementById('box3').style.left = box3XY + 'px';
+                document.getElementById('box3').style.top = box3XY + 'px';
+
+                if (box1X == 900) {
+                    box1X = -100;
+                } 
+
+                if (box2Y == 600) {
+                    box2Y = -100;
+                }
+
+                if (box3XY == 600) {
+                    box3XY = -100;
+                }
+            }
+        </script>
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>0</h1>
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <div id="box3"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Audio JS</title>
+        <style>
+            * {margin: 0; padding: 0; box-sizing: border-box;}
+
+            #container {
+                width: 900px;
+                height: 600px;
+                border: 1px solid black;
+                margin: 0 auto;
+
+            }
+
+            .btn {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                display: inline-block;
+                text-align: center;
+                line-height: 100px;
+                background-color: lightgreen;
+            }
+
+            #seekBar {
+                width: 500px;
+                height: 80px;
+                border: 1px solid black;
+            }
+
+            #timeBar {
+                width: 0px;
+                height: inherit;
+                background-color:  lightgreen;
+                transition: ease-in-out;
+
+                transition: all 1s ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1 id="titleText"></h1>
+            <h4 id="artistText"></h4>
+            <audio id="sng" src="audio/30sec.mp3" controls loop autoplay muted></audio>
+            <br/>
+            <div class="btn" onclick="playSng()">Play</div>
+            <div class="btn" onclick="pauseSng()">Pause</div>
+
+            <div id="seekBar">
+                <div id="timeBar"></div>
+            </div>
+
+            <div class="btn" onclick="getSong('songList')">Song 1</div>
+            <div class="btn" onclick="getSong('songList2')">Song 2</div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Player</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="app">
+                <div id="top-bar">
+                    <i class="fas fa-arrow-left"></i>
+                    <h3>Now Playing</h3>
+                    <i class="far fa-heart"></i>
+                </div>
+    
+                <div id="img-holder">
+                    <img id="img-album" src="images/littlebit.jpg">
+                </div>
+    
+                <div id="song-info-holder">
+                    <h1 id="titleText">Little Bit</h1>
+                    <h5 id="artistText">Lykke Li</h5>
+                    <audio id="sng" src="audio/littlebit.mp3" loop autoplay></audio>
+                </div> 
+    
+                <div id="seek-bar">
+                    <div id="time-bar"></div>
+                </div>
+    
+                <div id="control-bar">
+                    <ul>
+                        <li id="skipTrack" onclick="skipTrack(-1)"><i class="fas fa-step-backward"></i></li>
+                        <li id="volume" onclick="updateVol(-0.1)"><i class="fas fa-volume-down"></i></li>
+                        <li id="play-btn" onclick="switchClick()"><i class="fas fa-play-circle"></i></li>
+                        <li id="volume" onclick="updateVol(0.1)"><i class="fas fa-volume-up"></i></li>
+                        <li id="skipTrack" onclick="skipTrack(1)"><i class="fas fa-step-forward"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
