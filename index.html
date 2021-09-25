@@ -17,7 +17,7 @@
                 <div id="top-bar">
                     <i class="fas fa-arrow-left"></i>
                     <h3>Now Playing</h3>
-                    <i class="far fa-heart"></i>
+                    <div id="heart" onclick="fillHeart()"><i class="far fa-heart"></i></div>
                 </div>
     
                 <div id="img-holder">
@@ -42,6 +42,30 @@
                         <li id="volume" onclick="updateVol(0.1)"><i class="fas fa-volume-up"></i></li>
                         <li id="skipTrack" onclick="skipTrack(1)"><i class="fas fa-step-forward"></i></li>
                     </ul>
+                </div>
+
+                <div id="songs-list">
+                    <i class="fas fa-angle-up"></i>
+                    <div id="song-info">
+                        <div id="songs">
+                            <div class="info">
+                                <h1 id="title-up-next1">Happy Birthday</h1>
+                                <h5 id="artist-up-next1">Unknown</h5>
+                            </div>
+                            <div  onclick="skipTrack(1)">
+                                <i class="fas fa-play-circle" style="font-size: 30px;"></i>
+                            </div>
+                        </div>
+                        <div id="songs">
+                            <div class="info">
+                                <h1 id="title-up-next2">Piano Recital</h1>
+                                <h5 id="artist-up-next2">Piano Man</h5>
+                            </div>
+                            <div  onclick="skipTrack(-1)">
+                                <i class="fas fa-play-circle" style="font-size: 30px;"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

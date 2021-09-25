@@ -3,6 +3,7 @@ var timeBar = document.getElementById('time-bar');
 var vol = 1;
 var isPlaying = false;
 var i = 0;
+var heartFilled = false;
 
 const tracks = [
     {
@@ -15,7 +16,7 @@ const tracks = [
     {
         src: "audio/30sec.mp3",
         title: "Happy Birthday",
-        artist: "Uknown",
+        artist: "Unknown",
         banner: "images/cake.jpeg",
     }, 
 
@@ -69,4 +70,42 @@ function skipTrack(num) {
     document.getElementById("titleText").innerHTML = tracks[i].title;
     document.getElementById("artistText").innerHTML = tracks[i].artist;
     document.getElementById("img-album").src = tracks[i].banner;
+
+    if (i == 0) {
+        document.getElementById("title-up-next1").innerHTML = tracks[i + 1].title;
+        document.getElementById("artist-up-next1").innerHTML = tracks[i + 1].artist;
+        document.getElementById("title-up-next2").innerHTML = tracks[i + 2].title;
+        document.getElementById("artist-up-next2").innerHTML = tracks[i + 2].artist;
+    } else if (i == 1)  {
+        document.getElementById("title-up-next1").innerHTML = tracks[i + 1].title;
+        document.getElementById("artist-up-next1").innerHTML = tracks[i + 1].artist;
+        document.getElementById("title-up-next2").innerHTML = tracks[i - 1].title;
+        document.getElementById("artist-up-next2").innerHTML = tracks[i - 1].artist;
+    } else if (i == 2) {
+        document.getElementById("title-up-next1").innerHTML = tracks[i - 2].title;
+        document.getElementById("artist-up-next1").innerHTML = tracks[i - 2].artist;
+        document.getElementById("title-up-next2").innerHTML = tracks[i - 1].title;
+        document.getElementById("artist-up-next2").innerHTML = tracks[i - 1].artist;
+    }
+}
+
+function fillHeart() {
+    if (heartFilled == false) {
+        heartFilled = true;
+        document.getElementById("heart").style.color = 'red';
+        document.getElementById("heart").innerHTML = '<i class="fas fa-heart"></i>'; 
+    } else if (heartFilled == true) {
+        heartFilled = false;
+        document.getElementById("heart").style.color = 'white';
+        document.getElementById("heart").innerHTML = '<i class="far fa-heart"></i>';
+    }    
+}
+
+setInterval (checkTime, 1000);
+function checkTime () {
+    var songDuration = Math.ceil(sng.duration);
+    var songCurrentTime = Math.ceil(sng.currentTime);
+
+    var timeBarWidth = (songCurrentTime/songDuration) * 300;
+    timeBar.style.width = timeBarWidth + 'px';
 }

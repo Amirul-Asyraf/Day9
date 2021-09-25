@@ -23,7 +23,6 @@ img {
     border: 1px solid black;
     margin: 0 auto;
     overflow: hidden;
-
     background-image: linear-gradient(var(--primary-color), var(--secondary-color));
     /* background-image: linear-gradient(var(--secondary-color), var(--primary-color)); */
 }
@@ -35,6 +34,8 @@ img {
     flex-direction: column;
     justify-content: space-between;
     align-items: inherit;
+
+    position: relative;
 
     padding-bottom: 50px;
 }
@@ -50,6 +51,11 @@ img {
 
 .fa-arrow-left, .fa-heart {
     font-size: 20px;
+    transition: transform .2s;
+}
+
+.fa-heart:hover, .fa-arrow-left:hover {
+    transform: scale(1.5);
 }
 
 #img-holder {
@@ -83,7 +89,7 @@ img {
 }
 
 #time-bar {
-    width: 10px;
+    width: 0;
     height: inherit;
     background-color: var(--primary-color);
 }
@@ -92,12 +98,61 @@ img {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    padding-left: 5px;
+    margin-bottom: 25px;
 }
 
 #control-bar ul li {
     font-size: 30px;
 }
+
+#songs-list {
+    width: 340px;
+    height: 550px;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    box-shadow: 4px 4px 12px 2px black;
+    background-color: rgba(220, 220, 220, 0.85);
+    text-align: center;
+    font-size: 20px;
+
+    position: absolute;
+    left: 9px;
+    top: 690px;
+    z-index: 2;
+    transition: all .2s;
+}
+
+#songs-list:hover {
+    transform: translateY(-500px);
+}
+
+/* @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    #songs-list {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);  
+    }
+} */
+
+#songs {
+    /* border-top: 1px solid var(--secondary-color); */
+    border-bottom: 1px solid #bababa;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#songs h5 {
+    margin-bottom: 7px;
+}
+
+
 
 
